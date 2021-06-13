@@ -6,9 +6,8 @@ import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
-import com.hisoka.wetterapp.data.one_call_req.WeatherResponse
 import com.hisoka.wetterapp.databinding.ActivityScrollingBinding
-import com.hisoka.wetterapp.networking.WeatherApiService
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,10 +32,11 @@ class ScrollingActivity : AppCompatActivity() {
         weatherData = findViewById(R.id.tv_result)
         setSupportActionBar(findViewById(R.id.toolbar))
         binding.toolbarLayout.title = title
+        actionBar?.title
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
-            getCurrentData()
+            //getCurrentData()
         }
     }
 
@@ -56,17 +56,17 @@ class ScrollingActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
+/*
     private fun getCurrentData() {
         val retrofit = Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val service = retrofit.create(WeatherApiService::class.java)
-        val call = service.getCurrentWeatherData(lat, lon, appId)
-        call.enqueue(object : Callback<WeatherResponse> {
+        val OneCallRes = service.getCurrentWeatherData(lat, lon, appId)
+        OneCallRes.enqueue(object : Callback<WeatherResponse> {
             override fun onResponse(
-                call: Call<WeatherResponse>,
+                OneCallRes: Call<WeatherResponse>,
                 response: Response<WeatherResponse>
             ) {
                 if (response.code() == 200) {
@@ -93,10 +93,10 @@ class ScrollingActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
+            override fun onFailure(OneCallRes: Call<WeatherResponse>, t: Throwable) {
                 weatherData?.text = t.message
             }
 
         })
-    }
+    }*/
 }

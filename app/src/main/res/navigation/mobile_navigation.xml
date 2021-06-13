@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/mapFragment">
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.hisoka.wetterapp.ui.setting.SettingsFragment"
+        android:label="SettingsFragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/forYouFragment"
+        android:name="com.hisoka.wetterapp.ui.notifications.ForYouFragment"
+        android:label="fragment_for_you"
+        tools:layout="@layout/fragment_for_you">
+
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.hisoka.wetterapp.ui.home.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map">
+
+    </fragment>
+</navigation>
